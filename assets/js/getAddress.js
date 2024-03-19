@@ -1,54 +1,68 @@
+// Khai báo biến
 const provinceSelector = document.getElementById("province");
 const districtSelector = document.getElementById("district");
 const wardSelector = document.getElementById("ward");
 
 async function fetchData(url) {
+    const response = await fetch(url);
+    return response.json();
+}
+
+// 1. Lấy dữ liệu thành phố
+async function fetchProvince() {
     try {
-        const response = await fetch(url);
-        return response.json();
+        const res = await fetchData(`https://vapi.vnappmob.com/api/province/`);
+        res.results.map((item) => {
+            provinceSelector.innerHTML += `
+                            <option value="${item.province_id}">${item.province_name}</option>
+                        `;
+        });
     } catch (error) {
         console.error("Lỗi", error);
-        return null;
     }
 }
 
-async function fetchOptions(selector, url, defaultValue, valueKey, textKey) {
-    const res = await fetchData(url);
-    if (res && res.results) {
-        selector.innerHTML = `<option value="">--Chọn ${defaultValue}--</option>`;
-        res.results.forEach((item) => {
-            selector.innerHTML += `<option value="${item[valueKey]}">${item[textKey]}</option>`;
+// 2. Lấy huyện theo id tỉnh
+async function fetchDistrict(idProvince) {
+    const res = await fetchData(
+        `https://vapi.vnappmob.com/api/province/district/${idProvince}`
+    );
+    const district = res.results;
+    districtSelector.innerHTML = `<option value="">--Chọn Quận/Huyện--</option>`;
+    if (district !== undefined) {
+        district.map((item) => {
+            districtSelector.innerHTML += `
+                        <option value="${item.district_id}">${item.district_name}</option>
+                    `;
         });
     }
 }
 
+// 3. Lấy phường theo id huyện
+async function fetchWard(idDistrict) {
+    const res = await fetchData(
+        `https://vapi.vnappmob.com/api/province/ward/${idDistrict}`
+    );
+    const ward = res.results;
+    wardSelector.innerHTML = `<option value="">--Chọn Phường/Xã--</option>`;
+    if (ward !== undefined) {
+        ward.map((item) => {
+            wardSelector.innerHTML += `
+                        <option value="${item.ward_id}">${item.ward_name}</option>
+                    `;
+        });
+    }
+}
+
+// Event change
 provinceSelector.addEventListener("change", (event) => {
     wardSelector.innerHTML = "<option value=''>--Chọn Phường/Xã--</option>";
-    fetchOptions(
-        districtSelector,
-        `https://vapi.vnappmob.com/api/province/district/${event.target.value}`,
-        "Quận/Huyện",
-        "district_id",
-        "district_name"
-    );
+    fetchDistrict(event.target.value);
 });
 
 districtSelector.addEventListener("change", (event) => {
-    fetchOptions(
-        wardSelector,
-        `https://vapi.vnappmob.com/api/province/ward/${event.target.value}`,
-        "Phường/Xã",
-        "ward_id",
-        "ward_name"
-    );
+    fetchWard(event.target.value);
 });
 
-(async () => {
-    await fetchOptions(
-        provinceSelector,
-        "https://vapi.vnappmob.com/api/province/",
-        "Tỉnh/Thành phố",
-        "province_id",
-        "province_name"
-    );
-})();
+// Gọi hàm fetchProvince để lấy dữ liệu tỉnh/thành phố khi trang được tải
+fetchProvince();

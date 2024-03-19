@@ -10,9 +10,6 @@ const code = document.getElementById("home-number");
 const city = document.getElementById("province");
 const district = document.getElementById("district");
 const ward = document.getElementById("ward");
-const confirmBuy = document.querySelector(".action-confirm");
-const dialogBuy = document.querySelector(".dialog");
-
 const errorUser = document.getElementById("error-user");
 const errorEmail = document.getElementById("error-email");
 const errorPhone = document.getElementById("error-phone");
@@ -157,9 +154,7 @@ function validateCodeHouse() {
 }
 
 // Hàm validate và xử lý khi nhấn nút xác nhận
-function validate(event) {
-    event.preventDefault();
-
+function validate() {
     const isValidFullName = validateFullName();
     const isValidEmail = validateEmail();
     const isValidPhone = validatePhone();
@@ -187,21 +182,17 @@ function validate(event) {
             message: message.value,
         };
         apiBill.push(order);
-        const res = apiBill;
-        if (res) {
-            buySuccess();
-            updateQuantityAfterBuy();
-            dataLocal.saveDataLocal([], "cart");
-            dataLocal.saveDataBillLocal(apiBill);
-            dialogBuy.style.display = "none";
-        } else {
-            showErrorToast();
-        }
+        dataLocal.saveDataBillLocal(apiBill);
+        buySuccess();
+        updateQuantityAfterBuy();
+        dataLocal.saveDataLocal([], "cart");
+    } else {
+        showErrorToast();
     }
 }
 
-// Sự kiện khi nhấn nút xác nhận
-confirmBuy?.addEventListener("click", validate);
+// Gọi hàm validate khi nhấn nút Xác nhận
+document.querySelector(".action-confirm")?.addEventListener("click", validate);
 
 // Hàm sinh mã ngẫu nhiên
 function generateRandomId(length) {
