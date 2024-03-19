@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="icon" type="image/png" href="/assets/image/logo-domain.png">
+        <title>Cart</title>
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/base.css" />
+        <link rel="stylesheet" href="../toast/toast.css" />
+        <link rel="stylesheet" href="cart.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- header -->
+            <header>
+                <nav class="nav">
+                    <a href="/" class="nav__brand">
+                        <img
+                            class="nav__logo"
+                            src="../assets/image/nike_logo.jpg"
+                            alt="Nike"
+                        />
+                        <span class="nav__title">Nike</span>
+                    </a>
+                    <div class="nav__content">
+                        <ul>
+                            <li class="nav__item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="nav__item"><a href="#">About</a></li>
+                            <li class="nav__item">
+                                <a href="../bill/bill.html">Bills</a>
+                            </li>
+                        </ul>
+                        <button class="nav__cart btn btn--secondary">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="nav__cart-number">0</span>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <!-- content -->
+            <section class="main">
+                <div class="main__cart">
+                    <div class="main__cart-noempty">
+                        <div class="cart__product-title">
+                            <div class="cart__product-left">Product Name</div>
+                            <div class="cart__product-right">
+                                <div>Quantity</div>
+                                <div>Subtotal</div>
+                                <div>Total</div>
+                                <div>Clear Cart</div>
+                            </div>
+                        </div>
+                        <div class="cart__product-list"></div>
+                        <div class="cart__product-total">
+                            <span class="total-bill"></span>
+                        </div>
+                        <div class="cart__buy-btn"><span>Buy</span></div>
+                    </div>
+                </div>
+                <div class="main__back">
+                    <a
+                        href="/"
+                        class="cart__back"
+                        target="_self"
+                    >
+                        <i class="fa-solid fa-arrow-left icon__back"></i>
+                        <span> Back to Shopping</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <!-- Dialog -->
+        <div class="dialog">
+            <div class="dialog-overlay"></div>
+            <div class="dialog-content">
+                <form action="" class="dialog-form">
+                    <div class="form-title">
+                        <h2>Thông tin người mua</h2>
+                        <button class="form-cancel">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="form-user">
+                        <label for="first-name"
+                            >Họ và tên<span class="star">*</span></label
+                        >
+                        <span id="error-user"></span>
+                        <div class="full-name">
+                            <input
+                                id="first-name"
+                                type="text"
+                                name="first-name"
+                                class="first-name"
+                                placeholder="Họ"
+                            />
+                            <input
+                                name="last-name"
+                                type="text"
+                                class="last-name"
+                                placeholder="Tên"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-email">
+                        <label for="email"
+                            >Email<span class="star">*</span></label
+                        >
+                        <span id="error-email"></span>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="email"
+                            placeholder="Email"
+                        />
+                    </div>
+                    <div class="form-phone">
+                        <label for="phone-number"
+                            >Số điện thoại<span class="star">*</span></label
+                        >
+                        <span id="error-phone"></span>
+                        <input
+                            type="text"
+                            id="phone-number"
+                            class="phone-number"
+                            placeholder="Số điện thoại"
+                        />
+                    </div>
+                    <div class="address-title">
+                        <span>Địa chỉ<span class="star">*</span></span>
+                        <span id="error-address"></span>
+                    </div>
+                    <div class="form-address">
+                        <select class="province" id="province">
+                            <option value="" selected>--Chọn Tỉnh/TP--</option>
+                        </select>
+                        <select class="district" id="district">
+                            <option value="" selected>
+                                --Chọn Quận/Huyện--
+                            </option>
+                        </select>
+                        <select class="ward" id="ward">
+                            <option value="" selected>
+                                --Chọn Phường/Xã--
+                            </option>
+                        </select>
+                    </div>
+                    <input
+                        type="text"
+                        name="home-number"
+                        class="home-number"
+                        id="home-number"
+                        placeholder="Số nhà"
+                    />
+                    <div class="form-message">
+                        <label for="message">Lời nhắn</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            class="message-content"
+                            cols="30"
+                            rows="5"
+                        ></textarea>
+                    </div>
+                    <div class="form-action">
+                        <button class="action-cancel">Hủy</button>
+                        <button
+                            type="submit"
+                            class="action-confirm"
+                            type="button"
+                        >
+                            Xác nhận
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Toast -->
+        <div id="toast"></div>
+        <script type="module" src="cart.js"></script>
+        <script type="module" src="../toast/toast.js"></script>
+        <script type="module" src="../assets/js/getAddress.js"></script>
+        <script type="module" src="../assets/js/validateForm.js"></script>
+    </body>
+</html>

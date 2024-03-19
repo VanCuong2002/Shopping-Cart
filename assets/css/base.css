@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+    --width: 1280px;
+    --header-height: 80px;
+    --box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+/* Header */
+.wrapper {
+    margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    padding: 10px 100px;
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+        rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+        rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.nav__brand {
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav__logo {
+    margin: 0 10px;
+    width: 80px;
+    height: 45px;
+}
+
+.nav__title {
+    font-size: 2.8rem;
+}
+
+.nav__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    width: 60%;
+}
+
+.nav__content ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__item a {
+    color: #43433e;
+    padding: 0 15px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav__item a:hover {
+    opacity: 0.9;
+}
+
+.btn {
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn--secondary {
+    color: #292b2c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn--primary {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.nav__cart {
+    position: relative;
+    font-size: 1.8rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    margin-left: 10px;
+    padding: 12px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.nav__cart-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: #ff2727;
+    color: #fff;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

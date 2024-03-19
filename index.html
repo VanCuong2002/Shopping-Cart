@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Shopping-Cart</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/image/logo-domain.png"
+        />
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="./home/home.css" />
+        <link rel="stylesheet" href="./toast/toast.css" />
+        <link rel="stylesheet" href="./assets/css/base.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- header -->
+            <header>
+                <nav class="nav">
+                    <a href="/" class="nav__brand">
+                        <img
+                            class="nav__logo"
+                            src="../assets/image/nike_logo.jpg"
+                            alt="Nike"
+                        />
+                        <span class="nav__title">Nike</span>
+                    </a>
+                    <div class="nav__content">
+                        <ul>
+                            <li class="nav__item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="nav__item"><a href="#">About</a></li>
+                            <li class="nav__item">
+                                <a href="../bill/bill.html">Bills</a>
+                            </li>
+                        </ul>
+                        <a
+                            href="../cart/cart.html"
+                            class="nav__cart btn btn--secondary"
+                        >
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="nav__cart-number">0</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+            <!-- content -->
+            <section class="main"></section>
+            <!-- Toast -->
+            <div id="toast"></div>
+            <!-- footer -->
+            <footer class="footer">
+                <div class="footer-header">
+                    <img
+                        class="footer-header__img"
+                        src="../assets/image/logo-footer.jpg"
+                        alt="logo-footer"
+                    />
+                </div>
+                <div class="footer-body">
+                    <div class="body-content">
+                        <!-- info -->
+                        <div class="body-info">
+                            <p class="body-title">NHÀ PHÂN PHỐI ĐỘC QUYỀN</p>
+                            <p class="body-company">
+                                CÔNG TY CP THỜI TRANG ALZADO
+                            </p>
+                            <ul>
+                                <li class="body-address">
+                                    <i class="fa-solid fa-house"></i
+                                    ><span
+                                        >210 Tôn Đức Thắng, Hàng Bột, Đống Đa,
+                                        Hà Nội</span
+                                    >
+                                </li>
+                                <li class="body-phone">
+                                    <i class="fa-solid fa-phone"></i
+                                    ><span>+84 965 469 714</span>
+                                </li>
+                                <li class="body-contact">
+                                    <i class="fa-solid fa-envelope"></i
+                                    ><span>cuongcoca12345@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- category -->
+                        <div class="body-category">
+                            <p class="body-title">DANH MỤC NỔI BẬT</p>
+                            <ul>
+                                <li>Giới thiệu về PEAK Sport</li>
+                                <li>Giày bóng rổ</li>
+                                <li>Giày Chạy Bộ</li>
+                                <li>Phụ kiện</li>
+                            </ul>
+                        </div>
+                        <!-- category -->
+                        <div class="body-policy">
+                            <p class="body-title">CHÍNH SÁCH CÔNG TY</p>
+                            <ul>
+                                <li>Vận chuyển và giao hàng</li>
+                                <li>Chính sách bán hàng</li>
+                                <li>Chính Sách Đổi Trả & Bảo Hành</li>
+                                <li>Chính sách bảo mật</li>
+                            </ul>
+                        </div>
+                        <!-- Social -->
+                        <div class="body-social">
+                            <p class="body-title">THEO DÕI PEAKSPORT TẠI</p>
+                            <div class="log-social">
+                                <img
+                                    width="36"
+                                    height="36"
+                                    src="../assets/image/tiki.png"
+                                    alt="tiki"
+                                />
+                                <img
+                                    width="36"
+                                    height="36"
+                                    src="../assets/image/shopee.png"
+                                    alt="shopee"
+                                />
+                                <img
+                                    width="36"
+                                    height="36"
+                                    src="../assets/image/lazada.png"
+                                    alt="lazada"
+                                />
+                                <img
+                                    width="36"
+                                    height="36"
+                                    src="../assets/image/logo-youtube.png"
+                                    alt="youtube"
+                                />
+                            </div>
+                            <ul>
+                                <li>Hệ thống cửa hàng</li>
+                                <li>Liên hệ PEAK SPORT</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end">
+                    <img
+                        width="136"
+                        height="52"
+                        src="../assets/image/logo-BCT.png"
+                        class="image__img"
+                        alt="BCT"
+                    />
+                    <p>
+                        Bản quyền © thuộc về Thời Trang Thể Thao Chính Hãng PEAK
+                        Sport. Website designed by Tada
+                    </p>
+                </div>
+            </footer>
+        </div>
+        <script type="module" src="./home/home.js"></script>
+        <script type="module" src="./toast/toast.js"></script>
+    </body>
+</html>
